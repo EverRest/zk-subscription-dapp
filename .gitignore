@@ -1,0 +1,27 @@
+# dependencies
+node_modules
+*/yarn.lock
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+./packages/foundry/node_modules
+./packages/nextjs/node_modules
+
+# eslint
+.eslintcache
+
+# misc
+.DS_Store
+
+# IDE
+.vscode
+.idea
+
+# cli
+dist
