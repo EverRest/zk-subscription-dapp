@@ -22,9 +22,22 @@ contract zkProofVerifierTest is Test {
         assertTrue(isValid);
     }
 
+    function testVerifyProofInvalidSigner() public {
+        address invalidSigner = address(2);
+        bool isValid = verifier.verifyProof(invalidSigner, proof, membershipId);
+        assertFalse(isValid);
+    }
+
     function testRecoverSigner() public {
         bytes32 ethSignedMessageHash = keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", keccak256(abi.encodePacked("Membership ID: ", membershipId))));
         address recoveredSigner = verifier.recoverSigner(ethSignedMessageHash, proof);
         assertEq(recoveredSigner, signer);
+    }
+
+    function testRecoverSignerInvalidSignature() public {
+        bytes memory invalidProof = hex"";
+        bytes32 ethSignedMessageHash = keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", keccak256(abi.encodePacked("Membership ID: ", membershipId))));
+        vm.expectRevert("Invalid signature length");
+        verifier.recoverSigner(ethSignedMessageHash, invalidProof);
     }
 }
