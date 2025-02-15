@@ -2418,7 +2418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openzeppelin/contracts-hardhat-zksync-upgradable@npm:@openzeppelin/contracts@^5.0.2, @openzeppelin/contracts@npm:^5.2.0":
+"@openzeppelin/contracts-hardhat-zksync-upgradable@npm:@openzeppelin/contracts@^5.0.2":
   version: 5.2.0
   resolution: "@openzeppelin/contracts@npm:5.2.0"
   checksum: badff8c3be46b099c331e90ba27f75e36f7af681279952cf0b123c7448bc53cd541ef447de8e6ebc38e7b29aed8f17dacf0756aac5891eed03fe96a0a4eba1a0
@@ -12551,7 +12551,6 @@ __metadata:
   resolution: "se-2@workspace:."
   dependencies:
     "@matterlabs/hardhat-zksync": ^1.3.0
-    "@openzeppelin/contracts": ^5.2.0
     husky: ~8.0.3
     lint-staged: ~13.2.2
     zksync-web3: ^0.17.1

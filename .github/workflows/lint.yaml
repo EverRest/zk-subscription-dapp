@@ -27,6 +27,12 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: yarn
 
+      - name: Cache clean
+        run: yarn cache clean
+
+      - name: Delete node_modules
+        run: rm -rf node_modules yarn.lock
+
       - name: Install dependencies
         run: yarn install --immutable
 
