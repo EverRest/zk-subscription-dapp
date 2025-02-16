@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const { metadataDir, imgDir, imageExtensions } = require('../config/config');
-const { uploadFileToPinata, updateMetadataOnPinata, checkFileOnPinata } = require('../services/pinataService');
-const { flattenMetadata, findImagePath } = require('../utils/utils');
+const {metadataDir, imgDir, imageExtensions} = require('../config/config');
+const {uploadFileToPinata, updateMetadataOnPinata, checkFileOnPinata} = require('../services/pinataService');
+const {flattenMetadata, findImagePath} = require('../utils/utils');
 
 const processSchemas = async () => {
     const schemaFiles = fs.readdirSync(metadataDir).filter(file => file.endsWith('.json'));
@@ -11,7 +11,6 @@ const processSchemas = async () => {
         const schemaPath = path.join(metadataDir, schemaFile);
         const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
         const imageName = `${schema.code.toLowerCase()}`;
-
         const imagePath = findImagePath(imgDir, imageName, imageExtensions);
         if (!imagePath) {
             console.error(`Image not found for schema: ${schemaFile}`);
@@ -47,7 +46,6 @@ const processSchemas = async () => {
             const fullFileName = `${imageName}.${path.extname(imagePath).slice(1)}`;
             console.log(`Uploading image for schema: ${schemaFile}`, imagePath, imageName);
             const ipfsHash = await uploadFileToPinata(imagePath, fullFileName, schema);
-            schema.image = `https://ipfs.io/ipfs/${ipfsHash}`;
             fs.writeFileSync(schemaPath, JSON.stringify(schema, null, 2));
             console.log(`Schema updated: ${schemaFile}`);
         } catch (error) {

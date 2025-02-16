@@ -5,6 +5,5 @@
   "tier": "wood",
   "benefits": "Basic access to the platform 1st level",
   "level": 1,
-  "price": 0.001,
-  "image": "https://ipfs.io/ipfs/QmNzDVSYFtva9gvMtSrpAqeagJtCRTDgue5dbXBShXKGen"
+  "price": 0.001
 }
