@@ -1,5 +1,7 @@
 [profile.default]
 src = 'contracts'
+solc = "0.8.20"
+via_ir = true
 out = 'out'
 libs = ['lib']
 fs_permissions = [{ access = "read-write", path = "./"}]
@@ -36,3 +38,7 @@ tab_width = 4
 quote_style = "double"
 bracket_spacing = true
 int_types = "long"
+
+[profile.zksync]
+zksolc = "latest"
+mode = "zk"

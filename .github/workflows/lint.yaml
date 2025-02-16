@@ -19,7 +19,23 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
+
+      - name: Install foundry-toolchain
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+
+      - name: Run foundry tests with coverage
+        run: forge coverage --report lcov
+
+      - name: Check coverage
+        run: |
+          COVERAGE=$(forge coverage --report lcov | grep -oP 'Lines\s+:\s+\K\d+')
+          if [ "$COVERAGE" -ne 100 ]; then
+            echo "Coverage is not 100%. Deployment failed."
+            exit 1
+          fi
 
       - name: Setup node env
         uses: actions/setup-node@v3
@@ -35,16 +51,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --immutable
-
-      - name: Install foundry-toolchain
-        uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: nightly
-
-      - name: Run foundry node, deploy contracts (& generate contracts typescript output)
-        env:
-          ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
-        run: yarn chain & yarn deploy
 
       - name: Run nextjs lint
         run: yarn next:lint --max-warnings=0
