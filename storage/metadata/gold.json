@@ -1,0 +1,9 @@
+{
+  "name": "Gold Membership",
+  "code": "GOLD",
+  "description": "This is the Gold tier membership NFT.",
+  "tier": "gold",
+  "benefits": "Premium access to the platform 2nd level",
+  "level": 13,
+  "price": 0.013
+}

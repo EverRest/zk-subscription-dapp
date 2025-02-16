@@ -1,0 +1,9 @@
+{
+  "name": "Opale Membership",
+  "code": "OPALE",
+  "description": "This is the Opale tier membership NFT.",
+  "tier": "opale",
+  "benefits": "Special access to the platform 2nd level",
+  "level": 8,
+  "price": 0.008
+}

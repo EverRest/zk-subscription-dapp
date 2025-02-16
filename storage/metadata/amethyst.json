@@ -1,0 +1,9 @@
+{
+  "name": "Amethyst Membership",
+  "code": "AMETHYST",
+  "description": "This is the Amethyst tier membership NFT.",
+  "tier": "amethyst",
+  "benefits": "Enhanced access to the platform 2rd level",
+  "level": 6,
+  "price": 0.006
+}

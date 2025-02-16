@@ -1,0 +1,9 @@
+{
+  "name": "Emerald Membership",
+  "code": "EMERALD",
+  "description": "This is the Emerald tier membership NFT.",
+  "tier": "emerald",
+  "benefits": "Superior access to the platform 2nd level",
+  "level": 11,
+  "price": 0.011
+}

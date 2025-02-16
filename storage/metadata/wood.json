@@ -1,0 +1,9 @@
+{
+  "name": "Wood Membership",
+  "code": "WOOD",
+  "description": "This is the Wood tier membership NFT.",
+  "tier": "wood",
+  "benefits": "Basic access to the platform 1st level",
+  "level": 1,
+  "price": 0.001
+}

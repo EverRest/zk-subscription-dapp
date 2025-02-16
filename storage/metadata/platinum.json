@@ -1,0 +1,9 @@
+{
+  "name": "Platinum Membership",
+  "code": "PLATINUM",
+  "description": "This is the Platinum tier membership NFT.",
+  "tier": "platinum",
+  "benefits": "Premium access to the platform 3rd level",
+  "level": 14,
+  "price": 0.014
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Diamond Membership",
+  "code": "DIAMOND",
+  "description": "This is the Diamond tier membership NFT.",
+  "tier": "diamond",
+  "benefits": "Exclusive access to the platform 3rd level",
+  "level": 100,
+  "price": 0.1
+}

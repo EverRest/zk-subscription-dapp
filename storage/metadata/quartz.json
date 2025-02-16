@@ -1,0 +1,9 @@
+{
+  "name": "Quartz Membership",
+  "code": "QUARTZ",
+  "description": "This is the Quartz tier membership NFT.",
+  "tier": "quartz",
+  "benefits": "Standard access to the platform 1st level",
+  "level": 4,
+  "price": 0.004
+}

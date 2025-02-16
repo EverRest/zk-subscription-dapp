@@ -12,10 +12,12 @@
     "start": "next dev",
     "vercel": "vercel --build-env YARN_ENABLE_IMMUTABLE_INSTALLS=false --build-env ENABLE_EXPERIMENTAL_COREPACK=1 --build-env VERCEL_TELEMETRY_DISABLED=1",
     "vercel:login": "vercel login",
-    "vercel:yolo": "vercel --build-env YARN_ENABLE_IMMUTABLE_INSTALLS=false --build-env ENABLE_EXPERIMENTAL_COREPACK=1 --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true --build-env VERCEL_TELEMETRY_DISABLED=1"
+    "vercel:yolo": "vercel --build-env YARN_ENABLE_IMMUTABLE_INSTALLS=false --build-env ENABLE_EXPERIMENTAL_COREPACK=1 --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true --build-env VERCEL_TELEMETRY_DISABLED=1",
+    "upload-metadata": "ts-node ../../scripts/uploadMetadata.ts"
   },
   "dependencies": {
     "@heroicons/react": "~2.1.5",
+    "@pinata/sdk": "^2.1.0",
     "@rainbow-me/rainbowkit": "2.1.6",
     "@tanstack/react-query": "~5.59.15",
     "@uniswap/sdk-core": "~5.8.2",
@@ -23,6 +25,7 @@
     "blo": "~1.2.0",
     "burner-connector": "0.0.9",
     "daisyui": "4.12.10",
+    "dotenv": "^16.4.7",
     "next": "~14.2.11",
     "next-nprogress-bar": "~2.3.13",
     "next-themes": "~0.3.0",
@@ -52,6 +55,7 @@
     "postcss": "~8.4.45",
     "prettier": "~3.3.3",
     "tailwindcss": "~3.4.11",
+    "ts-node": "^10.9.2",
     "type-fest": "~4.26.1",
     "typescript": "<5.6.0",
     "vercel": "~39.1.3"

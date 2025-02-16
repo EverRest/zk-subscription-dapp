@@ -1,0 +1,9 @@
+{
+  "name": "Topaz Membership",
+  "code": "TOPAZ",
+  "description": "This is the Topaz tier membership NFT.",
+  "tier": "topaz",
+  "benefits": "Special access to the platform 3rd level",
+  "level": 9,
+  "price": 0.009
+}

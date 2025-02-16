@@ -1,0 +1,9 @@
+{
+  "name": "Ruby Membership",
+  "code": "RUBY",
+  "description": "This is the Ruby tier membership NFT.",
+  "tier": "ruby",
+  "benefits": "Exclusive access to the platform 2nd level",
+  "level": 50,
+  "price": 0.05
+}

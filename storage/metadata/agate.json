@@ -1,0 +1,9 @@
+{
+  "name": "Agate Membership",
+  "code": "AGATE",
+  "description": "This is the Agate tier membership NFT.",
+  "tier": "agate",
+  "benefits": "Enhanced access to the platform 1st level",
+  "level": 5,
+  "price": 0.005
+}

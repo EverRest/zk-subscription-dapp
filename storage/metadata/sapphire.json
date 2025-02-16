@@ -1,0 +1,9 @@
+{
+  "name": "Sapphire Membership",
+  "code": "SAPPHIRE",
+  "description": "This is the Sapphire tier membership NFT.",
+  "tier": "sapphire",
+  "benefits": "Exclusive access to the platform 1st level",
+  "level": 25,
+  "price": 0.025
+}

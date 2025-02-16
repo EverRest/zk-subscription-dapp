@@ -1,0 +1,9 @@
+{
+  "name": "Steel Membership",
+  "code": "STEEL",
+  "description": "This is the Steel tier membership NFT.",
+  "tier": "steel",
+  "benefits": "Basic access to the platform 2st level",
+  "level": 2,
+  "price": 0.002
+}

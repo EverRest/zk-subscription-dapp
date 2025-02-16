@@ -1,0 +1,9 @@
+{
+  "name": "Aquamarine Membership",
+  "code": "AQUAMARINE",
+  "description": "This is the Aquamarine tier membership NFT.",
+  "tier": "aquamarine",
+  "benefits": "Superior access to the platform 1st level",
+  "level": 10,
+  "price": 0.01
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Silver Membership",
+  "code": "SILVER",
+  "description": "This is the Silver tier membership NFT.",
+  "tier": "silver",
+  "benefits": "Premium access to the platform 1st level",
+  "level": 12,
+  "price": 0.012
+}

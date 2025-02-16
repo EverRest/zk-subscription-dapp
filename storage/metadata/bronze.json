@@ -1,0 +1,9 @@
+{
+  "name": "Bronze Membership",
+  "code": "BRONZE",
+  "description": "This is the Bronze tier membership NFT.",
+  "tier": "bronze",
+  "benefits": "Basic access to the platform 3rd level",
+  "level": 3,
+  "price": 0.003
+}

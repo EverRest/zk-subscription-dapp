@@ -43,7 +43,7 @@ describe('ERC20Wrapper', function () {
     expect(await this.token.decimals()).to.equal(decimals);
   });
 
-  it('decimals default back to 18 if token has no metadata', async function () {
+  it('decimals default back to 18 if token has no storage', async function () {
     const noDecimals = await ethers.deployContract('CallReceiverMock');
     const token = await ethers.deployContract('$ERC20Wrapper', [`Wrapped ${name}`, `W${symbol}`, noDecimals]);
     expect(await token.decimals()).to.equal(18n);

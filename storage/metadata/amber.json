@@ -1,0 +1,9 @@
+{
+  "name": "Amber Membership",
+  "code": "AMBER",
+  "description": "This is the Amber tier membership NFT.",
+  "tier": "amber",
+  "benefits": "Special access to the platform 1st level",
+  "level": 7,
+  "price": 0.007
+}

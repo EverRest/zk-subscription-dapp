@@ -2,7 +2,7 @@ import { AbiFunction, AbiParameter } from "abitype";
 import { AbiParameterTuple } from "~~/utils/scaffold-eth/contract";
 
 /**
- * Generates a key based on function metadata
+ * Generates a key based on function storage
  */
 const getFunctionInputKey = (functionName: string, input: AbiParameter, inputIndex: number): string => {
   const name = input?.name || `input_${inputIndex}_`;
