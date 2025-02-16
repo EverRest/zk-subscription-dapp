@@ -1,0 +1,23 @@
+{
+  "name": "Platinum Membership",
+  "description": "This is the Platinum tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafkreigldhq7wizzg3ylmu2jz3yloxonkcpkfaivej2sqli4pa2lh3ck74",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Platinum"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Premium access to the platform 3rd level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 14
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.014"
+    }
+  ]
+}

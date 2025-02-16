@@ -7,32 +7,32 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract MembershipNFT is ERC1155, Ownable {
     struct Membership {
         uint256 expiry;
-        uint256 tier;
+        string tier;
     }
 
-    mapping(uint256 => Membership) public memberships;
-    mapping(uint256 => uint256) public membershipPrices; // Store price per tier
+    mapping(string => Membership) public memberships;
+    mapping(string => uint256) public membershipPrices;
 
-    constructor() ERC1155("https://your-metadata-url/{id}.json") Ownable(msg.sender) {}
+    constructor() ERC1155("https://red-causal-duck-244.mypinata.cloud/ipfs/{id}.json") {}
 
-    function setTierPrice(uint256 tier, uint256 price) external onlyOwner {
+    function setTierPrice(string memory tier, uint256 price) external onlyOwner {
         membershipPrices[tier] = price;
     }
 
-    function mint(address to, uint256 tier, uint256 duration) external onlyOwner {
+    function mint(address to, string memory tier, uint256 duration) external onlyOwner {
         require(membershipPrices[tier] > 0, "Invalid tier");
         require(duration > 0, "Duration must be positive");
-        _mint(to, tier, 1, "");
+        _mint(to, uint256(keccak256(abi.encodePacked(tier))), 1, "");
         memberships[tier] = Membership(block.timestamp + duration, tier);
     }
 
-    function renew(uint256 tier, uint256 duration) external onlyOwner {
-        require(balanceOf(msg.sender, tier) > 0, "No active membership");
+    function renew(string memory tier, uint256 duration) external onlyOwner {
+        require(balanceOf(msg.sender, uint256(keccak256(abi.encodePacked(tier)))) > 0, "No active membership");
         require(memberships[tier].expiry > 0, "Membership does not exist");
         memberships[tier].expiry += duration;
     }
 
-    function isExpired(uint256 tier) public view returns (bool) {
+    function isExpired(string memory tier) public view returns (bool) {
         return block.timestamp > memberships[tier].expiry;
     }
 }

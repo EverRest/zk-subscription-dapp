@@ -1,0 +1,23 @@
+{
+  "name": "Sapphire Membership",
+  "description": "This is the Sapphire tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafkreiefq2oxhtay2yzpfwmkad6vztdt5k6wp3ofmpydx3webuxsu7f3te",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Sapphire"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Exclusive access to the platform 1st level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 25
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.025"
+    }
+  ]
+}

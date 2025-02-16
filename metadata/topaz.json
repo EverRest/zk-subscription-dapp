@@ -1,0 +1,23 @@
+{
+  "name": "Topaz Membership",
+  "description": "This is the Topaz tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafybeicbjq73du63xebgcydtzstmdthzh2vrf4vxhwbe36y6vwh4qxyzfi",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Topaz"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Special access to the platform 3rd level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 9
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.009"
+    }
+  ]
+}

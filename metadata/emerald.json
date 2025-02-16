@@ -1,0 +1,23 @@
+{
+  "name": "Emerald Membership",
+  "description": "This is the Emerald tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafkreie334xtcgs24z6j4hdcku7g6bgjgspvm2lwbvvn5g3fywgqrfmfzq",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Emerald"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Superior access to the platform 2nd level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 11
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.011"
+    }
+  ]
+}

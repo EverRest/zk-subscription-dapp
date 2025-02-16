@@ -1,0 +1,23 @@
+{
+  "name": "Opale Membership",
+  "description": "This is the Opale tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafybeid3bqpksijz6oj2h72fczntqeryifmxnxzjylgfh43wnj5lahdj3y",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Opale"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Special access to the platform 2nd level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 8
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.008"
+    }
+  ]
+}

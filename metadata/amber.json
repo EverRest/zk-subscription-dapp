@@ -1,0 +1,23 @@
+{
+  "name": "Amber Membership",
+  "description": "This is the Amber tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafkreiaqevoypd7d5ntp4jv2kz4enrgp6qzzv75ldsldgql6u33a7k7gbm",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Amber"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Special access to the platform 1st level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 7
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.007"
+    }
+  ]
+}

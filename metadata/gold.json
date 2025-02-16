@@ -1,0 +1,23 @@
+{
+  "name": "Gold Membership",
+  "description": "This is the Gold tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafkreiats7xn2dm6o3gkxv5hlglfm7g4wq5fjxgslcb3o5cru6tasirtee",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Gold"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Premium access to the platform 2nd level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 13
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.013"
+    }
+  ]
+}

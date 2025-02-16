@@ -1,0 +1,23 @@
+{
+  "name": "Wood Membership",
+  "description": "This is the Wood tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafkreifzi7olzlr5fixf4bwh5dmb54dqtjkedxks76sf7puh65jx22jgum",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Wood"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Basic access to the platform 1st level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 1
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.001"
+    }
+  ]
+}

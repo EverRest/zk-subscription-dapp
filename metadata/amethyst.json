@@ -1,0 +1,23 @@
+{
+  "name": "Amethyst Membership",
+  "description": "This is the Amethyst tier membership NFT.",
+  "image": "https://ipfs.io/ipfs/bafybeig4ioikic2i2xr64bikhnic3uol7iquhhxtmfe55ttzpcd7uzgsae",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Amethyst"
+    },
+    {
+      "trait_type": "Benefits",
+      "value": "Enhanced access to the platform 2rd level"
+    },
+    {
+      "trait_type": "Level",
+      "value": 6
+    },
+    {
+      "trait_type": "Price",
+      "value": "0.006"
+    }
+  ]
+}
