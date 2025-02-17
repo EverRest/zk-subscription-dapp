@@ -17,18 +17,18 @@ contract zkProofVerifierTest is Test {
         proof = abi.encodePacked(ethSignedMessageHash, uint8(27), uint8(28));
     }
 
-    function testVerifyProof() public {
+    function testVerifyProof() public view {
         bool isValid = verifier.verifyProof(signer, proof, membershipId);
         assertTrue(isValid);
     }
 
-    function testVerifyProofInvalidSigner() public {
+    function testVerifyProofInvalidSigner() public view {
         address invalidSigner = address(2);
         bool isValid = verifier.verifyProof(invalidSigner, proof, membershipId);
         assertFalse(isValid);
     }
 
-    function testRecoverSigner() public {
+    function testRecoverSigner() public view {
         bytes32 ethSignedMessageHash = keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", keccak256(abi.encodePacked("Membership ID: ", membershipId))));
         address recoveredSigner = verifier.recoverSigner(ethSignedMessageHash, proof);
         assertEq(recoveredSigner, signer);

@@ -9,12 +9,12 @@ contract DeploySubscriptionManager is ScaffoldETHDeploy {
     function run() external ScaffoldEthDeployerRunner {
         address membershipNFTAddress = getDeploymentAddress("MembershipNFT");
         if (membershipNFTAddress == address(0)) {
-            // Deploy MembershipNFT contract if not already deployed
             MembershipNFT membershipNFT = new MembershipNFT();
             membershipNFTAddress = address(membershipNFT);
             saveDeploymentAddress("MembershipNFT", membershipNFTAddress);
         }
-        new SubscriptionManager(membershipNFTAddress);
+        SubscriptionManager subscriptionManager = new SubscriptionManager(membershipNFTAddress);
+        deployments.push(Deployment("SubscriptionManager", address(subscriptionManager)));
     }
 
     function getDeploymentAddress(string memory name) internal view returns (address) {

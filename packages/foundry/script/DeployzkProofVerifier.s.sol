@@ -6,6 +6,7 @@ import "../contracts/zkProofVerifier.sol";
 
 contract DeployzkProofVerifier is ScaffoldETHDeploy {
     function run() external ScaffoldEthDeployerRunner {
-        new zkProofVerifier();
+        zkProofVerifier verifier = new zkProofVerifier();
+        deployments.push(Deployment("zkProofVerifier", address(verifier)));
     }
 }

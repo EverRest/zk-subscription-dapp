@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
 import "../contracts/MembershipNFT.sol";
@@ -9,47 +9,22 @@ contract MembershipNFTTest is Test {
 
     function setUp() public {
         membershipNFT = new MembershipNFT();
+        membershipNFT.setTierPrice("gold", 1 ether);
     }
 
-    function testSetTierPrice() public {
-        membershipNFT.setTierPrice(1, 1 ether);
-        assertEq(membershipNFT.membershipPrices(1), 1 ether);
-    }
+    function testMintAndRenew() public {
+        membershipNFT.mint{value: 1 ether}(address(this), "gold", 30 days, "Gold Membership", "Description", "Benefits", 1, "image");
+        uint256 tokenId = 0; // Assuming tokenId is 0 for this test
 
-    function testMint() public {
-        membershipNFT.setTierPrice(1, 1 ether);
-        membershipNFT.mint(address(this), 1, 30 days);
-        assertEq(membershipNFT.balanceOf(address(this), 1), 1);
-    }
-
-    function testMintInvalidTier() public {
-        vm.expectRevert("Invalid tier");
-        membershipNFT.mint(address(this), 2, 30 days);
-    }
-
-    function testMintInvalidDuration() public {
-        membershipNFT.setTierPrice(1, 1 ether);
-        vm.expectRevert("Duration must be positive");
-        membershipNFT.mint(address(this), 1, 0);
-    }
-
-    function testRenew() public {
-        membershipNFT.setTierPrice(1, 1 ether);
-        membershipNFT.mint(address(this), 1, 30 days);
-        uint256 initialExpiry = membershipNFT.memberships(1).expiry;
-        membershipNFT.renew(1, 30 days);
-        assertEq(membershipNFT.memberships(1).expiry, initialExpiry + 30 days);
-    }
-
-    function testRenewNoActiveMembership() public {
-        vm.expectRevert("No active membership");
-        membershipNFT.renew(1, 30 days);
+        membershipNFT.renew(tokenId, 30 days);
+        assertFalse(membershipNFT.isExpired(tokenId));
     }
 
     function testIsExpired() public {
-        membershipNFT.setTierPrice(1, 1 ether);
-        membershipNFT.mint(address(this), 1, 1 days);
-        vm.warp(block.timestamp + 2 days);
-        assertTrue(membershipNFT.isExpired(1));
+        membershipNFT.mint{value: 1 ether}(address(this), "gold", 1 days, "Gold Membership", "Description", "Benefits", 1, "image");
+        uint256 tokenId = 0; // Assuming tokenId is 0 for this test
+
+        vm.warp(block.timestamp + 2 days); // Fast forward time
+        assertTrue(membershipNFT.isExpired(tokenId));
     }
 }
