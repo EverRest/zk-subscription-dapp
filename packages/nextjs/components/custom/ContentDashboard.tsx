@@ -3,7 +3,6 @@
 import { useState } from "react";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import { Address } from "~~/components/scaffold-eth";
 import type { Content, Subscription } from "~~/types/types";
 
 const subscriptions: Subscription[] = [

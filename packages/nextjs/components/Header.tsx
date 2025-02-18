@@ -8,7 +8,6 @@ import { hardhat } from "viem/chains";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import CakeIcon from "@heroicons/react/24/outline/CakeIcon";
 import EnvelopeOpenIcon from "@heroicons/react/24/outline/EnvelopeOpenIcon";
-import FireIcon from "@heroicons/react/24/outline/FireIcon";
 import HomeIcon from "@heroicons/react/24/outline/HomeIcon";
 import LinkIcon from "@heroicons/react/24/outline/LinkIcon";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
