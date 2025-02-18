@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { NextPage } from "next";
-import { useAccount } from "wagmi";
 import type { Content, Subscription } from "~~/types/types";
 
 const subscriptions: Subscription[] = [
@@ -48,7 +48,6 @@ const contents: Content[] = [
 ];
 
 const ContentDashboard: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
   const [selectedSubscription, setSelectedSubscription] = useState<Subscription | null>(null);
 
   return (
@@ -62,7 +61,7 @@ const ContentDashboard: NextPage = () => {
                 className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-lg transform transition-transform hover:scale-105"
                 onClick={() => setSelectedSubscription(subscription)}
               >
-                <img src={subscription.image} alt={subscription.name} className="h-24 w-24 mb-4" />
+                <Image src={subscription.image} alt={subscription.name} width={96} height={96} className="mb-4" />
                 <h2 className="text-xl font-bold mb-2">{subscription.name}</h2>
                 <p className="text-sm mb-4">{subscription.description}</p>
                 <p className="text-lg font-semibold">{subscription.price}</p>
