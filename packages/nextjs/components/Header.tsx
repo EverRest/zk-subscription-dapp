@@ -5,7 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { hardhat } from "viem/chains";
-import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+import CakeIcon from "@heroicons/react/24/outline/CakeIcon";
+import EnvelopeOpenIcon from "@heroicons/react/24/outline/EnvelopeOpenIcon";
+import FireIcon from "@heroicons/react/24/outline/FireIcon";
+import HomeIcon from "@heroicons/react/24/outline/HomeIcon";
+import LinkIcon from "@heroicons/react/24/outline/LinkIcon";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
@@ -19,12 +24,25 @@ export const menuLinks: HeaderMenuLink[] = [
   {
     label: "Home",
     href: "/",
+    icon: <HomeIcon className="h-4 w-4" />,
   },
 
   {
-    label: "Debug Contracts",
-    href: "/debug",
-    icon: <BugAntIcon className="h-4 w-4" />,
+    label: "Our Mission",
+    href: "/about-us",
+    icon: <CakeIcon className="h-4 w-4" />,
+  },
+
+  {
+    label: "Contact Us",
+    href: "/about-us",
+    icon: <EnvelopeOpenIcon className="h-4 w-4" />,
+  },
+
+  {
+    label: "Subscriptions",
+    href: "/subscriptions",
+    icon: <LinkIcon className="h-4 w-4" />,
   },
 ];
 
