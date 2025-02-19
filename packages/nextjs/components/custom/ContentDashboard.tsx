@@ -1,33 +1,8 @@
-"use client";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { NextPage } from "next";
+import { fetchSchemas } from "~~/services/api/schemaApi";
 import type { Content, Subscription } from "~~/types/types";
-
-const subscriptions: Subscription[] = [
-  {
-    name: "Gold Membership",
-    tier: "gold",
-    description: "Access to premium content and features.",
-    price: "1 ETH",
-    image: "https://example.com/gold.png",
-  },
-  {
-    name: "Silver Membership",
-    tier: "silver",
-    description: "Access to standard content and features.",
-    price: "0.5 ETH",
-    image: "https://example.com/silver.png",
-  },
-  {
-    name: "Bronze Membership",
-    tier: "bronze",
-    description: "Access to basic content and features.",
-    price: "0.1 ETH",
-    image: "https://example.com/bronze.png",
-  },
-];
 
 const contents: Content[] = [
   {
@@ -48,7 +23,20 @@ const contents: Content[] = [
 ];
 
 const ContentDashboard: NextPage = () => {
+  const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [selectedSubscription, setSelectedSubscription] = useState<Subscription | null>(null);
+
+  useEffect(() => {
+    const fetchSubscriptions = async () => {
+      try {
+        const schemas = await fetchSchemas();
+        setSubscriptions(schemas);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchSubscriptions();
+  }, []);
 
   return (
     <>
@@ -61,10 +49,18 @@ const ContentDashboard: NextPage = () => {
                 className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl shadow-lg transform transition-transform hover:scale-105"
                 onClick={() => setSelectedSubscription(subscription)}
               >
-                <Image src={subscription.image} alt={subscription.name} width={96} height={96} className="mb-4" />
+                <div className="w-24 h-24 mb-4 rounded-full border border-gray-900 overflow-hidden">
+                  <Image
+                    src={subscription.image}
+                    alt={subscription.name}
+                    width={96}
+                    height={96}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
                 <h2 className="text-xl font-bold mb-2">{subscription.name}</h2>
                 <p className="text-sm mb-4">{subscription.description}</p>
-                <p className="text-lg font-semibold">{subscription.price}</p>
+                <p className="text-lg font-semibold">{subscription.price} ETH</p>
               </div>
             ))}
           </div>
@@ -75,7 +71,7 @@ const ContentDashboard: NextPage = () => {
             <div className="bg-white p-8 rounded-lg max-w-md w-full">
               <h2 className="text-2xl font-bold mb-4">{selectedSubscription.name}</h2>
               <p className="mb-4">{selectedSubscription.description}</p>
-              <p className="text-lg font-semibold mb-4">{selectedSubscription.price}</p>
+              <p className="text-lg font-semibold mb-4">{selectedSubscription.price} ETH</p>
               <div className="mb-4">
                 {contents
                   .filter(content => content.tags.includes(selectedSubscription.tier))

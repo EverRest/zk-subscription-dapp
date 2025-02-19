@@ -14,6 +14,7 @@ const getEnvVar = (key: string): string => {
 export const config = {
   pinataApiKey: getEnvVar("PINATA_API_KEY"),
   pinataSecretApiKey: getEnvVar("PINATA_SECRET_API_KEY"),
+  pinataDomain: getEnvVar("PINATA_DOMAIN"),
   pinataImagePathPattern: `https://${process.env.PINATA_DOMAIN}/ipfs/`,
   imageExtensions: ["png", "jpg", "jpeg", "gif", "bmp", "tiff", "webp"],
   metadataDir: path.join(__dirname, "../../../storage/metadata"),

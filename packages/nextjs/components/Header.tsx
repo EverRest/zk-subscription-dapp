@@ -5,11 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { hardhat } from "viem/chains";
-import { Bars3Icon } from "@heroicons/react/24/outline";
-import CakeIcon from "@heroicons/react/24/outline/CakeIcon";
-import EnvelopeOpenIcon from "@heroicons/react/24/outline/EnvelopeOpenIcon";
-import HomeIcon from "@heroicons/react/24/outline/HomeIcon";
-import LinkIcon from "@heroicons/react/24/outline/LinkIcon";
+import { Bars3Icon, BookmarkIcon, CakeIcon, EnvelopeOpenIcon, HomeIcon, LinkIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
@@ -24,6 +20,12 @@ export const menuLinks: HeaderMenuLink[] = [
     label: "Home",
     href: "/",
     icon: <HomeIcon className="h-4 w-4" />,
+  },
+
+  {
+    label: "Best content",
+    href: "/best-content",
+    icon: <BookmarkIcon className="h-4 w-4" />,
   },
 
   {
@@ -115,8 +117,8 @@ export const Header = () => {
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold leading-tight">Scaffold-ETH</span>
-            <span className="text-xs">Ethereum dev stack</span>
+            <span className="font-bold leading-tight">Zk-subscription</span>
+            <span className="text-xs">No pain, no gain</span>
           </div>
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
