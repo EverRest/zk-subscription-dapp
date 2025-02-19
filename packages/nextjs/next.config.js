@@ -4,7 +4,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.PINATA_DOMAIN],
+    domains: [
+        process.env.PINATA_DOMAIN,
+        "mg.daisyui.com",
+    ],
   },
   typescript: {
     ignoreBuildErrors: process.env.NEXT_PUBLIC_IGNORE_BUILD_ERROR === "true",
