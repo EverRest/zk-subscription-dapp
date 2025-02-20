@@ -31,7 +31,14 @@ jobs:
         run: yarn install --immutable
 
       - name: Copy .env files
-        run: cp .env.example .env && cd packages/nextjs && cp .env.example .env
+        run: |
+          echo "PINATA_API_KEY=${{ secrets.PINATA_API_KEY }}" >> .env
+          echo "PINATA_SECRET_API_KEY=${{ secrets.PINATA_SECRET_API_KEY }}" >> .env
+          echo "PINATA_DOMAIN=${{ secrets.PINATA_DOMAIN }}" >> .env
+          cd packages/nextjs
+          echo "PINATA_API_KEY=${{ secrets.PINATA_API_KEY }}" >> .env
+          echo "PINATA_SECRET_API_KEY=${{ secrets.PINATA_SECRET_API_KEY }}" >> .env
+          echo "PINATA_DOMAIN=${{ secrets.PINATA_DOMAIN }}" >> .env
 
   lint:
     runs-on: ubuntu-latest
