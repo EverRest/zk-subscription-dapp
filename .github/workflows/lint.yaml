@@ -40,6 +40,10 @@ jobs:
           echo "PINATA_SECRET_API_KEY=${{ secrets.PINATA_SECRET_API_KEY }}" >> .env
           echo "PINATA_DOMAIN=${{ secrets.PINATA_DOMAIN }}" >> .env
 
+      - name: Copy next.env files
+        run: |
+          echo "PINATA_DOMAIN=${{ secrets.PINATA_DOMAIN }}" >> ./packages/nextjs/.env
+
   lint:
     runs-on: ubuntu-latest
     needs: setup
