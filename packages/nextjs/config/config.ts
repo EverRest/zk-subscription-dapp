@@ -18,4 +18,9 @@ export const config = {
   pinataImagePathPattern: `https://${process.env.PINATA_DOMAIN}/ipfs/`,
   imageExtensions: ["png", "jpg", "jpeg", "gif", "bmp", "tiff", "webp"],
   metadataDir: path.join(__dirname, "../../../storage/metadata"),
+  emailHost: getEnvVar("EMAIL_HOST"),
+  emailPort: parseInt(getEnvVar("EMAIL_PORT")),
+  emailUser: getEnvVar("EMAIL_USER"),
+  emailPass: getEnvVar("EMAIL_PASS"),
+  emailRecipient: getEnvVar("EMAIL_RECIPIENT"),
 };
