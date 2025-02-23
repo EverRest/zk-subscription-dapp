@@ -42,7 +42,7 @@ const ContentDashboard: NextPage = () => {
     <>
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 drop-shadow-xl">
             {subscriptions.map((subscription, index) => (
               <div
                 key={index}
@@ -55,7 +55,7 @@ const ContentDashboard: NextPage = () => {
                     alt={subscription.name}
                     width={96}
                     height={96}
-                    className="object-cover w-full h-full"
+                    className="contrast-50 object-cover w-full h-full"
                   />
                 </div>
                 <h2 className="text-xl font-bold mb-2">{subscription.name}</h2>

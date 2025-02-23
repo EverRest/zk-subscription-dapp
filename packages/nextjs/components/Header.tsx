@@ -36,7 +36,7 @@ export const menuLinks: HeaderMenuLink[] = [
 
   {
     label: "Contact Us",
-    href: "/about-us",
+    href: "/contact-us",
     icon: <EnvelopeOpenIcon className="h-4 w-4" />,
   },
 
