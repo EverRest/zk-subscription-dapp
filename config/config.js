@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({path: './packages/nextjs/.env'});
 const path = require('path');
 
 module.exports = {

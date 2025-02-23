@@ -32,16 +32,9 @@ jobs:
 
       - name: Copy .env files
         run: |
-          echo "PINATA_API_KEY=${{ secrets.PINATA_API_KEY }}" >> .env
-          echo "PINATA_SECRET_API_KEY=${{ secrets.PINATA_SECRET_API_KEY }}" >> .env
-          echo "PINATA_DOMAIN=${{ secrets.PINATA_DOMAIN }}" >> .env
-          cd packages/nextjs
-          echo "PINATA_API_KEY=${{ secrets.PINATA_API_KEY }}" >> .env
-          echo "PINATA_SECRET_API_KEY=${{ secrets.PINATA_SECRET_API_KEY }}" >> .env
-          echo "PINATA_DOMAIN=${{ secrets.PINATA_DOMAIN }}" >> .env
-
-      - name: Copy next.env files
-        run: |
+          echo "APP_SECRET_KEY=${{ secrets.APP_SECRET_KEY }}" >> ./packages/nextjs/.env
+          echo "PINATA_API_KEY=${{ secrets.PINATA_API_KEY }}" >> ./packages/nextjs/.env
+          echo "PINATA_SECRET_API_KEY=${{ secrets.PINATA_SECRET_API_KEY }}" >> ./packages/nextjs/.env
           echo "PINATA_DOMAIN=${{ secrets.PINATA_DOMAIN }}" >> ./packages/nextjs/.env
 
   lint:

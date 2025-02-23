@@ -4,7 +4,16 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.PINATA_DOMAIN || "pina.pinata.cloud", "mg.daisyui.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: process.env.PINATA_DOMAIN || "pina.pinata.cloud",
+      },
+      {
+        protocol: "https",
+        hostname: "img.daisyui.com",
+      },
+    ],
   },
   typescript: {
     ignoreBuildErrors: process.env.NEXT_PUBLIC_IGNORE_BUILD_ERROR === "true",
