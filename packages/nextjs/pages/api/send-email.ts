@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import * as yup from "yup";
+import { config } from "~~/config/config";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -15,17 +16,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const { email, subject, message } = req.body;
 
       const transporter = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 2525,
+        host: config.emailHost,
+        port: config.emailPort,
         auth: {
-          user: "your_mailtrap_username",
-          pass: "your_mailtrap_password",
+          user: config.emailUser,
+          pass: config.emailPass,
         },
       });
 
       const mailOptions = {
         from: email,
-        to: "recipient@example.com",
+        to: config.emailRecipient,
         subject: subject,
         text: message,
       };

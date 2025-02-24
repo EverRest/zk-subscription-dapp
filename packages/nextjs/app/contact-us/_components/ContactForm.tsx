@@ -37,6 +37,7 @@ export const ContactForm = () => {
       await sendEmail(formData.email, formData.subject, formData.message);
       setAlert({ type: "success", message: "Email sent successfully" });
       setErrors({});
+      setFormData({ email: "", subject: "", message: "" });
     } catch (error) {
       if (error instanceof yup.ValidationError) {
         const validationErrors: { [key: string]: string } = {};
@@ -113,7 +114,7 @@ export const ContactForm = () => {
       <div className="flex items-center space-x-4">
         <div className="flex flex-col w-full">
           <label htmlFor="message" className="mb-2 text-left font-semibold">
-            Input your message...
+            Message
           </label>
           <textarea
             name="message"

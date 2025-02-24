@@ -11,8 +11,8 @@ const ContactUs: NextPage = () => {
   const { address: connectedAddress } = useAccount();
   return (
     <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
+      <div className="pt-25">
+        <div className="px-5 pt-5">
           <h1 className="text-center">
             <span className="block text-4xl font-bold">Contact Us</span>
           </h1>
@@ -20,7 +20,7 @@ const ContactUs: NextPage = () => {
             <p className="my-2 font-medium">Connected Address:</p>
             <Address address={connectedAddress} />
           </div>
-          <div className="text-center text-lg">
+          <div className="text-center text-lg pt-5">
             <ContactForm />
           </div>
         </div>
