@@ -3,50 +3,46 @@ import nodemailer from "nodemailer";
 import * as yup from "yup";
 import { config } from "~~/config/config";
 
-const schema = yup.object().shape({
+const emailSchema = yup.object().shape({
   email: yup.string().email().required(),
-  subject: yup.string().required().min(3).max(255),
+  subject: yup.string().min(3).max(255).required(),
   message: yup.string().required(),
 });
 
+const transporter = nodemailer.createTransport({
+  host: config.email.host ?? "",
+  port: Number(config.email.port),
+  secure: false,
+  auth: {
+    user: config.email.user ?? "",
+    pass: config.email.pass ?? "",
+  },
+});
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    try {
-      await schema.validate(req.body);
-      const { email, subject, message } = req.body;
-      const user = config.email.user ?? "";
-      const pass = config.email.pass ?? "";
-      const host = config.email.host ?? "";
-      const port = config.email.port ?? "";
-      const transport = {
-        host,
-        auth: {
-          user,
-          pass,
-        },
-        secure: false,
-        port: Number(port),
-      };
-      const mailOptions = {
-        from: email,
-        to: config.email.recipient,
-        subject: subject,
-        text: message,
-      };
-      const transporter = nodemailer.createTransport(transport);
-      await transporter.sendMail(mailOptions);
-      res.status(200).json({ message: "Email sent successfully" });
-    } catch (error) {
-      if (error instanceof yup.ValidationError) {
-        res.status(400).json({ error: error.errors });
-      } else {
-        res.status(500).json({
-          error: error instanceof Error ? error.message : "Unknown error",
-          stack: error instanceof Error ? error.stack : null,
-        });
-      }
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
+
+  try {
+    const { email, subject, message } = await emailSchema.validate(req.body);
+
+    await transporter.sendMail({
+      from: email,
+      to: config.email.recipient,
+      subject,
+      text: message,
+    });
+
+    return res.status(200).json({ message: "Email sent successfully" });
+  } catch (error) {
+    if (error instanceof yup.ValidationError) {
+      return res.status(400).json({ error: error.errors });
     }
-  } else {
-    res.status(405).json({ message: "Method not allowed" });
+
+    console.error("Email sending error:", error);
+    return res.status(500).json({
+      error: error instanceof Error ? error.message : "Unknown error",
+    });
   }
 }
