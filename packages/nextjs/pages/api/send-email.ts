@@ -10,7 +10,6 @@ const emailSchema = yup.object().shape({
 });
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
   host: config.email.host ?? "",
   port: Number(config.email.port),
   secure: false,
