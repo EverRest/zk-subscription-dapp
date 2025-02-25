@@ -3,24 +3,31 @@ import path from "path";
 
 dotenv.config();
 
-const getEnvVar = (key: string): string => {
-  const value = process.env[key];
-  if (!value) {
-    throw new Error(`Environment variable ${key} is not set`);
-  }
-  return value;
-};
-
 export const config = {
-  pinataApiKey: getEnvVar("PINATA_API_KEY"),
-  pinataSecretApiKey: getEnvVar("PINATA_SECRET_API_KEY"),
-  pinataDomain: getEnvVar("PINATA_DOMAIN"),
-  pinataImagePathPattern: `https://${process.env.PINATA_DOMAIN}/ipfs/`,
-  imageExtensions: ["png", "jpg", "jpeg", "gif", "bmp", "tiff", "webp"],
-  metadataDir: path.join(__dirname, "../../../storage/metadata"),
-  emailHost: getEnvVar("EMAIL_HOST"),
-  emailPort: parseInt(getEnvVar("EMAIL_PORT")),
-  emailUser: getEnvVar("EMAIL_USER"),
-  emailPass: getEnvVar("EMAIL_PASS"),
-  emailRecipient: getEnvVar("EMAIL_RECIPIENT"),
+  pinata: {
+    apiKey: process.env.PINATA_API_KEY,
+    secretApiKey: process.env.PINATA_SECRET_API_KEY,
+    domain: process.env.PINATA_DOMAIN,
+    imagePathPattern: `https://${process.env.PINATA_DOMAIN}/ipfs/`,
+  },
+  file: {
+    extensions: ["png", "jpg", "jpeg", "gif", "bmp", "tiff", "webp"],
+    metadataDir: path.join(__dirname, "../../../storage/metadata"),
+  },
+  email: {
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+    recipient: process.env.EMAIL_RECIPIENT,
+  },
+  socials: {
+    tiktok: process.env.TIKTOK_ACCOUNT,
+    facebook: process.env.FACEBOOK_ACCOUNT,
+    instagram: process.env.INSTAGRAM_ACCOUNT,
+    twitter: process.env.TWITTER_ACCOUNT,
+    linkedin: process.env.LINKEDIN_ACCOUNT,
+    telegram: process.env.TELEGRAM_ACCOUNT,
+    discord: process.env.DISCORD_ACCOUNT,
+  },
 };

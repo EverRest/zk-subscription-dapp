@@ -14,23 +14,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       await schema.validate(req.body);
       const { email, subject, message } = req.body;
-
+      const user = config.email.user ?? "";
+      const pass = config.email.pass ?? "";
+      const host = config.email.host ?? "";
+      const port = config.email.port ?? "";
       const transporter = nodemailer.createTransport({
-        host: config.emailHost,
-        port: config.emailPort,
+        host,
         auth: {
-          user: config.emailUser,
-          pass: config.emailPass,
+          user,
+          pass,
         },
+        secure: false,
+        port: Number(port),
       });
-
       const mailOptions = {
         from: email,
-        to: config.emailRecipient,
+        to: config.email.recipient,
         subject: subject,
         text: message,
       };
-
       await transporter.sendMail(mailOptions);
       res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {

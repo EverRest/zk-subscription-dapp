@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaTelegram, FaTiktok, FaTwitter } from "react-icons/fa";
 import { hardhat } from "viem/chains";
 import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { HeartIcon } from "@heroicons/react/24/outline";
 import { SwitchTheme } from "~~/components/SwitchTheme";
-import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 import { Faucet } from "~~/components/scaffold-eth";
+import { config } from "~~/config/config";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { useGlobalState } from "~~/services/store/store";
 
@@ -16,7 +16,6 @@ export const Footer = () => {
   const nativeCurrencyPrice = useGlobalState(state => state.nativeCurrency.price);
   const { targetNetwork } = useTargetNetwork();
   const isLocalNetwork = targetNetwork.id === hardhat.id;
-
   return (
     <div className="min-h-0 py-5 px-1 mb-11 lg:mb-0">
       <div>
@@ -47,30 +46,70 @@ export const Footer = () => {
         <ul className="menu menu-horizontal w-full">
           <div className="flex justify-center items-center gap-2 text-sm w-full">
             <div className="text-center">
-              <a href="https://github.com/scaffold-eth/se-2" target="_blank" rel="noreferrer" className="link">
-                Fork me
-              </a>
-            </div>
-            <span>·</span>
-            <div className="flex justify-center items-center gap-2">
-              <p className="m-0 text-center">
-                Built with <HeartIcon className="inline-block h-4 w-4" /> at
-              </p>
-              <a
-                className="flex justify-center items-center gap-1"
-                href="https://buidlguidl.com/"
+              <Link
+                href={`https://www.facebook.com/${config.socials.facebook}`}
                 target="_blank"
                 rel="noreferrer"
+                className="link"
               >
-                <BuidlGuidlLogo className="w-3 h-5 pb-1" />
-                <span className="link">BuidlGuidl</span>
-              </a>
+                <FaFacebook className="inline-block h-4 w-4" /> Facebook
+              </Link>
             </div>
             <span>·</span>
             <div className="text-center">
-              <a href="https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA" target="_blank" rel="noreferrer" className="link">
-                Support
-              </a>
+              <Link
+                href={`https://www.instagram.com/${config.socials.instagram}`}
+                target="_blank"
+                rel="noreferrer"
+                className="link"
+              >
+                <FaInstagram className="inline-block h-4 w-4" /> Instagram
+              </Link>
+            </div>
+            <span>·</span>
+            <div className="text-center">
+              <Link href={`https://x.com/${config.socials.twitter}`} target="_blank" rel="noreferrer" className="link">
+                <FaTwitter className="inline-block h-4 w-4" /> X
+              </Link>
+            </div>
+            <span>·</span>
+            <div className="text-center">
+              <Link
+                href={`https://www.linkedin.com/in/${config.socials.linkedin}`}
+                target="_blank"
+                rel="noreferrer"
+                className="link"
+              >
+                <FaLinkedin className="inline-block h-4 w-4" /> LinkedIn
+              </Link>
+            </div>
+            <span>·</span>
+            <div className="text-center">
+              <Link
+                href={`https://www.tiktok.com/@${config.socials.tiktok}`}
+                target="_blank"
+                rel="noreferrer"
+                className="link"
+              >
+                <FaTiktok className="inline-block h-4 w-4" /> TikTok
+              </Link>
+            </div>
+            <span>·</span>
+            <div className="text-center">
+              <Link href={`https://t.me/${config.socials.telegram}`} target="_blank" rel="noreferrer" className="link">
+                <FaTelegram className="inline-block h-4 w-4" /> Telegram
+              </Link>
+            </div>
+            <span>·</span>
+            <div className="text-center">
+              <Link
+                href={`https://discord.gg/${config.socials.discord}`}
+                target="_blank"
+                rel="noreferrer"
+                className="link"
+              >
+                <FaDiscord className="inline-block h-4 w-4" /> Discord
+              </Link>
             </div>
           </div>
         </ul>
