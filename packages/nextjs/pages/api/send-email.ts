@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const pass = config.email.pass ?? "";
       const host = config.email.host ?? "";
       const port = config.email.port ?? "";
-      const transporter = nodemailer.createTransport({
+      const transport = {
         host,
         auth: {
           user,
@@ -26,13 +26,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
         secure: false,
         port: Number(port),
-      });
+      };
       const mailOptions = {
         from: email,
         to: config.email.recipient,
         subject: subject,
         text: message,
       };
+      const transporter = nodemailer.createTransport(transport);
       await transporter.sendMail(mailOptions);
       res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {
