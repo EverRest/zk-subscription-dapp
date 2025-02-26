@@ -29,7 +29,6 @@ const ContentDashboard: NextPage = () => {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [contentForSubscription, setContentForSubscription] = useState<Content[]>([]);
-  const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef<IntersectionObserver | null>(null);
   const ITEMS_PER_PAGE = 6;
@@ -60,7 +59,6 @@ const ContentDashboard: NextPage = () => {
 
       if (nextItems.length > 0) {
         setVisibleSubscriptions(prev => [...prev, ...nextItems]);
-        setPage(prev => prev + 1);
         setHasMore(visibleSubscriptions.length + nextItems.length < subscriptions.length);
       } else {
         setHasMore(false);
