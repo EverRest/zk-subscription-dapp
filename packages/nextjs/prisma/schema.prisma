@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id          Int          @id @default(autoincrement())
+  name        String
+  title       String
+  users       User[]
+  permissions Permission[]
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  username      String         @db.VarChar(255)
+  wallet        String         @unique @db.VarChar(255)
+  mood          String?        @db.VarChar(255)
+  about         String?
+  roleId        Int
+  role          Role           @relation(fields: [roleId], references: [id])
+  subscriptions Subscription[]
+  links         Link[]
+}
+
+model Subscription {
+  id    Int       @id @default(autoincrement())
+  code  String
+  name  String
+  links LinkTag[]
+  users User[]
+}
+
+model LinkTag {
+  linkId         Int
+  link           Link         @relation(fields: [linkId], references: [id])
+  subscriptionId Int
+  subscription   Subscription @relation(fields: [subscriptionId], references: [id])
+
+  @@id([linkId, subscriptionId])
+}
+
+model Link {
+  id         Int       @id @default(autoincrement())
+  path       String
+  userId     Int
+  user       User      @relation(fields: [userId], references: [id])
+  categoryId Int
+  category   Category  @relation(fields: [categoryId], references: [id])
+  tags       LinkTag[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String
+  title String
+  links Link[]
+}
+
+model Permission {
+  id     Int    @id @default(autoincrement())
+  name   String
+  roleId Int
+  role   Role   @relation(fields: [roleId], references: [id])
+}

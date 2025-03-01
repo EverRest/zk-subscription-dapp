@@ -1,0 +1,14 @@
+{
+  "categories": [
+    { "name": "Technology", "title": "Tech News and Updates" },
+    { "name": "Lifestyle", "title": "Lifestyle and Wellness" },
+    { "name": "Entertainment", "title": "Movies, Music, and More" },
+    { "name": "Sports", "title": "Sports News and Highlights" },
+    { "name": "Finance", "title": "Financial News and Analysis" },
+    { "name": "Travel", "title": "Travel Destinations and Tips" },
+    { "name": "Cooking", "title": "Recipes and Culinary Arts" },
+    { "name": "Science", "title": "Scientific Discoveries and Research" },
+    { "name": "Gaming", "title": "Video Game News and Reviews" },
+    { "name": "Art", "title": "Art and Design Insights" }
+  ]
+}
