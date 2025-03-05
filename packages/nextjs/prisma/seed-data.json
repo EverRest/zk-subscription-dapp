@@ -1,14 +1,54 @@
 {
   "categories": [
-    { "name": "Technology", "title": "Tech News and Updates" },
-    { "name": "Lifestyle", "title": "Lifestyle and Wellness" },
-    { "name": "Entertainment", "title": "Movies, Music, and More" },
-    { "name": "Sports", "title": "Sports News and Highlights" },
-    { "name": "Finance", "title": "Financial News and Analysis" },
-    { "name": "Travel", "title": "Travel Destinations and Tips" },
-    { "name": "Cooking", "title": "Recipes and Culinary Arts" },
-    { "name": "Science", "title": "Scientific Discoveries and Research" },
-    { "name": "Gaming", "title": "Video Game News and Reviews" },
-    { "name": "Art", "title": "Art and Design Insights" }
+    {
+      "id": 1,
+      "name": "Technology",
+      "title": "Tech News and Updates"
+    },
+    {
+      "id": 2,
+      "name": "Lifestyle",
+      "title": "Lifestyle and Wellness"
+    },
+    {
+      "id": 3,
+      "name": "Entertainment",
+      "title": "Movies, Music, and More"
+    },
+    {
+      "id": 4,
+      "name": "Sports",
+      "title": "Sports News and Highlights"
+    },
+    {
+      "id": 5,
+      "name": "Finance",
+      "title": "Financial News and Analysis"
+    },
+    {
+      "id": 6,
+      "name": "Travel",
+      "title": "Travel Destinations and Tips"
+    },
+    {
+      "id": 7,
+      "name": "Cooking",
+      "title": "Recipes and Culinary Arts"
+    },
+    {
+      "id": 8,
+      "name": "Science",
+      "title": "Scientific Discoveries and Research"
+    },
+    {
+      "id": 9,
+      "name": "Gaming",
+      "title": "Video Game News and Reviews"
+    },
+    {
+      "id": 10,
+      "name": "Art",
+      "title": "Art and Design Insights"
+    }
   ]
 }
