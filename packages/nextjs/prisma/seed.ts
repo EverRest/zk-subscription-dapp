@@ -4,13 +4,13 @@ import * as fs from "fs/promises";
 import * as path from "path";
 
 const prisma = new PrismaClient();
+const dataPath = path.join(__dirname, "seed-data.json");
 
 async function seedCategories() {
-  const dataPath = path.join(__dirname, "seed-data.json");
+  console.log("🌱 Seeding Categories...");
   const rawData = await fs.readFile(dataPath, "utf-8");
   const seedData = JSON.parse(rawData);
-  console.log(seedData);
-  console.log("🌱 Seeding Categories...");
+  console.log(seedData.categories);
   for (const category of seedData.categories) {
     await prisma.category.upsert({
       where: { id: category.id },
@@ -44,7 +44,24 @@ async function seedSubscriptions() {
   console.log("✅ Subscriptions seeded successfully!");
 }
 
+async function seedRoles() {
+  console.log("🌱 Seeding Roles...");
+  const rawData = await fs.readFile(dataPath, "utf-8");
+  const seedData = JSON.parse(rawData);
+  console.log(seedData.roles);
+  for (const role of seedData.roles) {
+    await prisma.role.upsert({
+      where: { id: role.id },
+      update: role,
+      create: role,
+    });
+  }
+
+  console.log("✅ Roles seeded successfully!");
+}
+
 async function main() {
+  await seedRoles();
   await seedCategories();
   await seedSubscriptions();
 }

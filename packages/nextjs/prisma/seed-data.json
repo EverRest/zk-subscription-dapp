@@ -50,5 +50,17 @@
       "name": "Art",
       "title": "Art and Design Insights"
     }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "admin",
+      "title": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "user",
+      "title": "User"
+    }
   ]
 }
