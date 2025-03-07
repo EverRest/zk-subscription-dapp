@@ -26,6 +26,21 @@ export interface Link {
   tags: string[];
 }
 
+export interface Schema {
+  id: string;
+  name: string;
+  tier: string;
+  description: string;
+  price: string;
+  image: string;
+}
+
+export interface Tag {
+  id: string;
+  name: string;
+  code: string;
+}
+
 export enum HttpMethod {
   GET = "GET",
   POST = "POST",

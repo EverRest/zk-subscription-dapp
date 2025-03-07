@@ -22,7 +22,7 @@ export const ContactForm = () => {
   const [errors, setErrors] = useState<{ email?: string; subject?: string; message?: string }>({});
   const [alert, setAlert] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = e.target;
     setFormData(prevData => ({
       ...prevData,

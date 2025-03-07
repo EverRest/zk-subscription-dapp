@@ -1,6 +1,6 @@
-import { HttpMethod } from "~~/types/types";
+import { HttpMethod, Schema } from "~~/types/types";
 import { apiRequest } from "~~/utils/custom";
 
-export const fetchSchemas = async () => {
+export const fetchSchemas = async (): Promise<Schema[]> => {
   return apiRequest("/api/schemas", HttpMethod.GET);
 };
