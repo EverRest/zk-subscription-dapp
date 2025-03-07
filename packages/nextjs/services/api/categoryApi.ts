@@ -1,7 +1,7 @@
 import { Category } from "~~/types/types";
 
 export const createCategory = async (category: Category) => {
-  const response = await fetch("/api/categories", {
+  const response: Response = await fetch("/api/categories", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export const fetchCategories = async (page = 1, limit = 10, search = "") => {
   const queryParams = new URLSearchParams({ page: page.toString(), limit: limit.toString() });
   if (search) queryParams.append("search", search);
 
-  const response = await fetch(`/api/categories?${queryParams.toString()}`);
+  const response: Response = await fetch(`/api/categories?${queryParams.toString()}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch categories");
@@ -27,7 +27,7 @@ export const fetchCategories = async (page = 1, limit = 10, search = "") => {
 };
 
 export const fetchCategoryById = async (id: string) => {
-  const response = await fetch(`/api/categories/${id}`);
+  const response: Response = await fetch(`/api/categories/${id}`);
   if (!response.ok) {
     throw new Error("Failed to fetch category");
   }

@@ -1,7 +1,7 @@
 import { Link } from "~~/types/types";
 
 export const createLink = async (link: Link) => {
-  const response = await fetch("/api/links", {
+  const response: Response = await fetch("/api/links", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const createLink = async (link: Link) => {
 export const fetchLinks = async (page = 1, limit = 10, search = "") => {
   const queryParams = new URLSearchParams({ page: page.toString(), limit: limit.toString() });
   if (search) queryParams.append("search", search);
-  const response = await fetch(`/api/links?${queryParams.toString()}`);
+  const response: Response = await fetch(`/api/links?${queryParams.toString()}`);
   if (!response.ok) {
     throw new Error("Failed to fetch links");
   }
@@ -25,7 +25,7 @@ export const fetchLinks = async (page = 1, limit = 10, search = "") => {
 };
 
 export const fetchLinkById = async (id: string) => {
-  const response = await fetch(`/api/links/${id}`);
+  const response: Response = await fetch(`/api/links/${id}`);
   if (!response.ok) {
     throw new Error("Failed to fetch link");
   }

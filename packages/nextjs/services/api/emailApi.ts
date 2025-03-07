@@ -1,5 +1,5 @@
 export const sendEmail = async (email: string, subject: string, message: string) => {
-  const response = await fetch("/api/send-email", {
+  const response: Response = await fetch("/api/send-email", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
