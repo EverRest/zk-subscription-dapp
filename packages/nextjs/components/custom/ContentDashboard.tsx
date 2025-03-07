@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { NextPage } from "next";
-import { fetchSchemas } from "~~/services/api/schemaApi";
+import { fetchSchemas } from "~~/services/api/schema";
 import type { Content, Subscription } from "~~/types/types";
 
 const contents: Content[] = [

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as yup from "yup";
-import { sendEmail } from "~~/services/api/emailApi";
+import { sendEmail } from "~~/services/api/email";
 
 const schema = yup.object().shape({
   email: yup.string().email("Email must be a valid email").required("Email is required"),
