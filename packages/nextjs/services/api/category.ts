@@ -1,5 +1,5 @@
-import { Category } from "~~/types/types";
-import { HttpMethod } from "~~/types/types";
+import { HttpMethod } from "~~/types/enums";
+import { Category } from "~~/types/interfaces";
 import { apiRequest } from "~~/utils/custom";
 
 export const createCategory = async (category: Category): Promise<Category> => {

@@ -1,4 +1,4 @@
-import { HttpMethod } from "~~/types/types";
+import { HttpMethod } from "~~/types/enums";
 
 export const getHeaders = () => ({
   "Content-Type": "application/json",

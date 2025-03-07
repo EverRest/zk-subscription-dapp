@@ -2,7 +2,7 @@
 
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import ContentDashboard from "~~/components/custom/ContentDashboard";
+import ContentDashboard from "~~/components/custom/Subscription";
 import { Address } from "~~/components/scaffold-eth";
 
 const Subscriptions: NextPage = () => {

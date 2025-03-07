@@ -1,5 +1,5 @@
-import { HttpMethod } from "~~/types/types";
-import { Tag } from "~~/types/types";
+import { HttpMethod } from "~~/types/enums";
+import { Tag } from "~~/types/interfaces";
 import { apiRequest } from "~~/utils/custom";
 
 export const upsertTags = async (linkId: string, tags: string[]): Promise<Tag> => {

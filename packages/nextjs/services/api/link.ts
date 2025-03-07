@@ -1,5 +1,5 @@
-import { HttpMethod } from "~~/types/types";
-import { Link } from "~~/types/types";
+import { HttpMethod } from "~~/types/enums";
+import { Link } from "~~/types/interfaces";
 import { apiRequest } from "~~/utils/custom";
 
 export const createLink = async (link: Link): Promise<Link> => {
