@@ -11,3 +11,17 @@ export type Content = {
   body: string;
   tags: string[];
 };
+
+export interface Category {
+  id?: string;
+  name: string;
+  description?: string;
+}
+
+export interface Link {
+  id?: string;
+  title: string;
+  url: string;
+  description?: string;
+  tags: string[];
+}
