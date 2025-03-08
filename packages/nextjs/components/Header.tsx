@@ -14,6 +14,7 @@ import {
   HomeIcon,
   LinkIcon,
 } from "@heroicons/react/24/outline";
+import LanguageSwitcher from "~~/components/custom/LanguageSwitcher";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
@@ -24,41 +25,12 @@ type HeaderMenuLink = {
 };
 
 export const menuLinks: HeaderMenuLink[] = [
-  {
-    label: "Home",
-    href: "/",
-    icon: <HomeIcon className="h-4 w-4" />,
-  },
-
-  {
-    label: "Best content",
-    href: "/best-content",
-    icon: <BookmarkIcon className="h-4 w-4" />,
-  },
-
-  {
-    label: "Upload",
-    href: "/upload",
-    icon: <FolderIcon className="h-4 w-4" />,
-  },
-
-  {
-    label: "Our Mission",
-    href: "/about-us",
-    icon: <CakeIcon className="h-4 w-4" />,
-  },
-
-  {
-    label: "Contact Us",
-    href: "/contact-us",
-    icon: <EnvelopeOpenIcon className="h-4 w-4" />,
-  },
-
-  {
-    label: "Subscriptions",
-    href: "/subscriptions",
-    icon: <LinkIcon className="h-4 w-4" />,
-  },
+  { label: "Home", href: "/", icon: <HomeIcon className="h-4 w-4" /> },
+  { label: "Best content", href: "/best-content", icon: <BookmarkIcon className="h-4 w-4" /> },
+  { label: "Upload", href: "/upload", icon: <FolderIcon className="h-4 w-4" /> },
+  { label: "Our Mission", href: "/about-us", icon: <CakeIcon className="h-4 w-4" /> },
+  { label: "Contact Us", href: "/contact-us", icon: <EnvelopeOpenIcon className="h-4 w-4" /> },
+  { label: "Subscriptions", href: "/subscriptions", icon: <LinkIcon className="h-4 w-4" /> },
 ];
 
 export const HeaderMenuLinks = () => {
@@ -139,7 +111,8 @@ export const Header = () => {
           <HeaderMenuLinks />
         </ul>
       </div>
-      <div className="navbar-end flex-grow mr-4">
+      <div className="navbar-end flex-grow mr-4 flex items-center gap-3">
+        <LanguageSwitcher />
         <RainbowKitCustomConnectButton />
         {isLocalNetwork && <FaucetButton />}
       </div>
