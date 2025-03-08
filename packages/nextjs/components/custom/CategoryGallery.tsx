@@ -34,8 +34,6 @@ const CategoryGallery = () => {
 
   return (
     <div className="p-12">
-      <h1 className="text-4xl font-bold text-center mb-8">Category Gallery</h1>
-
       {loading ? (
         <div className="flex justify-center">
           <span className="loading loading-spinner loading-lg"></span>
