@@ -5,7 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { hardhat } from "viem/chains";
-import { Bars3Icon, BookmarkIcon, CakeIcon, EnvelopeOpenIcon, HomeIcon, LinkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  BookmarkIcon,
+  CakeIcon,
+  EnvelopeOpenIcon,
+  FolderIcon,
+  HomeIcon,
+  LinkIcon,
+} from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
 
@@ -26,6 +34,12 @@ export const menuLinks: HeaderMenuLink[] = [
     label: "Best content",
     href: "/best-content",
     icon: <BookmarkIcon className="h-4 w-4" />,
+  },
+
+  {
+    label: "Upload",
+    href: "/upload",
+    icon: <FolderIcon className="h-4 w-4" />,
   },
 
   {

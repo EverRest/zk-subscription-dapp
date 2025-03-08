@@ -47,6 +47,7 @@
     "upload-metadata": "node --no-deprecation scripts/uploadMetadata.js"
   },
   "devDependencies": {
+    "@types/formidable": "^3.4.5",
     "husky": "~8.0.3",
     "lint-staged": "~13.2.2"
   },
@@ -56,6 +57,7 @@
   },
   "dependencies": {
     "@pinata/sdk": "^2.1.0",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "formidable": "^3.5.2"
   }
 }

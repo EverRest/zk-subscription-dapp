@@ -28,7 +28,6 @@ const CategoryGallery = () => {
         setLoading(false);
       }
     };
-
     fetchCategories();
   }, []);
 
@@ -41,26 +40,28 @@ const CategoryGallery = () => {
       ) : error ? (
         <p className="text-red-500 text-center">{error}</p>
       ) : (
-        <div className="grid grid-cols-6 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categories.map(category => (
             <div
               key={category.id}
               onClick={() => setSelectedCategory(category)}
-              className="relative overflow-hidden rounded-lg shadow-lg border border-gray-800 hover:shadow-2xl transition-all cursor-pointer"
+              className="card glass shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
-              <Image
-                src="https://picsum.photos/250/400"
-                alt={category.name}
-                width={400}
-                height={250}
-                className="object-cover w-full h-48 hover:scale-110 transition-transform duration-300"
-              />
-              <div
-                className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4"
-                style={{ backgroundColor: categoryColors[category.id] || "#333" }}
-              >
-                <h4 className="text-sm font-semibold uppercase">{category.name}</h4>
-                <p className="text-sm">{category.description}</p>
+              <figure>
+                <Image
+                  src="https://picsum.photos/250/400"
+                  alt={category.name}
+                  width={400}
+                  height={250}
+                  className="object-cover w-full h-48"
+                />
+              </figure>
+              <div className="card-body" style={{ backgroundColor: categoryColors[category.id] || "#333" }}>
+                <h4 className="card-title text-white">{category.name}</h4>
+                <p className="text-white text-sm">{category.description}</p>
+                <div className="card-actions justify-end">
+                  <span className="badge badge-outline">{category.name.slice(0, 2).toUpperCase()}</span>
+                </div>
               </div>
             </div>
           ))}
@@ -69,22 +70,21 @@ const CategoryGallery = () => {
 
       {selectedCategory && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
-            <h2 className="text-2xl font-bold mb-4">{selectedCategory.name}</h2>
+          <div className="modal-box w-96">
+            <h2 className="text-2xl font-bold">{selectedCategory.name}</h2>
             <Image
               src="https://picsum.photos/200/300"
               alt={selectedCategory.name}
               width={300}
               height={200}
-              className="object-cover rounded-md"
+              className="object-cover rounded-md my-4"
             />
-            <p className="text-gray-600 mt-4">{selectedCategory.description}</p>
-            <button
-              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-              onClick={() => setSelectedCategory(null)}
-            >
-              Close
-            </button>
+            <p className="text-gray-600">{selectedCategory.description}</p>
+            <div className="modal-action">
+              <button className="btn btn-primary" onClick={() => setSelectedCategory(null)}>
+                Close
+              </button>
+            </div>
           </div>
         </div>
       )}
